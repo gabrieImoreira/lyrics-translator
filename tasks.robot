@@ -7,6 +7,10 @@ Library             RPA.Browser.Selenium
 Get lyrics
     Open Available Browser    https://www.lyrics.com/lyrics/Peaches
     Click Element If Visible    css:.best-matches a
+    ${lyrics_element}=    Set Variable    id:lyric-body-text
+    Wait Until Element Is Visible    ${lyrics_element}
+    ${lyrics}=    Get Text    ${lyrics_element}
+
 
 *** Keywords ***
 Translate
@@ -15,7 +19,6 @@ Translate
 *** Keywords ***
 Save lyrics
     No Operation 
-
 
 *** Tasks ***
 Google Translate song lyris from source to target language
