@@ -18,7 +18,7 @@ Get lyrics
 Translate
     [Arguments]    ${lyrics}
     Go To    https://translate.google.com.br/?hl=pt-BR&sl=en&tl=pt&text=${lyrics}
-    ${translate_element}=    Set Variable    css.:Q4iAWc
+    ${translate_element}=    Set Variable    css:.Q4iAWc
     Wait Until Element Is Visible    ${translate_element}
     ${translation}=    Get Text    ${translate_element}
     [Return] ${translation}
