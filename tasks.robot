@@ -5,6 +5,10 @@ Library             RPA.Browser.Selenium    #auto_close=${FALSE}
 Library             OperatingSystem
 Library             String
 
+*** Variables ***
+${SONG_NAME}=    %{SONG_NAME=Misterio - Mc Kevin}
+${SOURCE_LANG}=    %{SOURCE_LANG=pt}
+${TARGET_LANG}=    %{TARGET_LANG=en}
 
 *** Keywords ***
 Get lyrics
@@ -19,8 +23,8 @@ Get lyrics
 *** Keywords ***
 Translate
     [Arguments]    ${lyrics}
-    ${lyrics}=    Replace String    ${lyrics}  \n    %0A 
-    Go To    https://translate.google.com.br/?hl=pt-BR&sl=pt&tl=en&text=${lyrics}&op=translate
+    ${lyrics}=    Replace String    ${lyrics}  \n    %0A  
+    Go To    https://translate.google.com.br/?hl=pt-BR&sl=${SOURCE_LANG}&tl=${TARGET_LANG}&text=${lyrics}&op=translate
     ${translate_element}=    Set Variable    xpath=//*[@id="yDmH0d"]/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[2]/div[8]/div/div[1]
     Wait Until Element Is Visible    ${translate_element}
     ${translation}=    Get Text    ${translate_element}

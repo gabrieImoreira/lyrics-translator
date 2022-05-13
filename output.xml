@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.7.5 on linux)" generated="20220513 00:57:10.129" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="/home/gams/Documents/lyrics-translator/tasks.robot">
+<test id="s1-t1" name="Google Translate song lyris from source to target language" line="42">
+<kw name="Get lyrics">
+<var>${lyrics}</var>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://m.letras.mus.br/?q=${SONG_NAME}</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20220513 00:57:11.454" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20220513 00:57:13.732" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20220513 00:57:13.732" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20220513 00:57:13.733" level="INFO">Opening url 'https://m.letras.mus.br/?q=Misterio - Mc Kevin'</msg>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220513 00:57:17.025" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=99.0.4844.82)
+</msg>
+<status status="FAIL" starttime="20220513 00:57:16.947" endtime="20220513 00:57:17.033"/>
+</kw>
+<msg timestamp="20220513 00:57:17.033" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=99.0.4844.82)
+</msg>
+<msg timestamp="20220513 00:57:17.041" level="FAIL">WebDriverException: Message: unknown error: cannot determine loading status
+from unknown error: cannot determine loading status
+from disconnected: received Inspector.detached event
+  (Session info: chrome=99.0.4844.82)
+</msg>
+<status status="FAIL" starttime="20220513 00:57:11.452" endtime="20220513 00:57:17.042"/>
+</kw>
+<kw name="Click Element If Visible" library="RPA.Browser.Selenium">
+<arg>xpath=//*[@id="___gcse_0"]/div/div/div/div[5]/div[2]/div/div/div[1]/div[1]/div[1]/div[1]/div/a</arg>
+<doc>Click element if it is visible</doc>
+<status status="NOT RUN" starttime="20220513 00:57:17.042" endtime="20220513 00:57:17.043"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${lyrics_element}</var>
+<arg>xpath=//*[@id="js-lyric-cnt"]/article/div[2]/div[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20220513 00:57:17.049" endtime="20220513 00:57:17.049"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="RPA.Browser.Selenium">
+<arg>${lyrics_element}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20220513 00:57:17.065" endtime="20220513 00:57:17.065"/>
+</kw>
+<kw name="Get Text" library="RPA.Browser.Selenium">
+<var>${lyrics}</var>
+<arg>${lyrics_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220513 00:57:17.066" endtime="20220513 00:57:17.066"/>
+</kw>
+<status status="FAIL" starttime="20220513 00:57:11.451" endtime="20220513 00:57:17.067"/>
+</kw>
+<kw name="Translate">
+<var>${translation}</var>
+<arg>${lyrics}</arg>
+<status status="NOT RUN" starttime="20220513 00:57:17.069" endtime="20220513 00:57:17.070"/>
+</kw>
+<kw name="Save lyrics">
+<arg>${lyrics}</arg>
+<arg>${translation}</arg>
+<status status="NOT RUN" starttime="20220513 00:57:17.073" endtime="20220513 00:57:17.074"/>
+</kw>
+<status status="FAIL" starttime="20220513 00:57:11.449" endtime="20220513 00:57:17.075">WebDriverException: Message: unknown error: cannot determine loading status
+from unknown error: cannot determine loading status
+from disconnected: received Inspector.detached event
+  (Session info: chrome=99.0.4844.82)
+</status>
+</test>
+<doc>Google Translate song lyris from source to target language.
+Saves the original and the translated lyrics as text files.</doc>
+<status status="FAIL" starttime="20220513 00:57:10.137" endtime="20220513 00:57:17.078"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220513 00:57:17.033" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: WebDriverException: Message: chrome not reachable
+  (Session info: chrome=99.0.4844.82)
+</msg>
+</errors>
+</robot>
+
+  (Session info: chrome=99.0.4844.82)
+</msg>
+</errors>
+</robot>
