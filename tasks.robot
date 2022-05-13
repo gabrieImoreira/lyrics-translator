@@ -16,24 +16,17 @@ Get lyrics
 *** Keywords ***
 Translate
     [Arguments]    ${lyrics}
-    Go To    https://translate.google.com.br/?hl=en&sl=pt-BR&tl=pt&text=${lyrics}
+    Go To    https://translate.google.com.br/?hl=en&sl=pt-BR&tl=en&text=${lyrics}
     ${translate_element}=    Set Variable    xpath=//*[@id="yDmH0d"]/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[2]/div[3]/c-wiz[2]/div[8]/div/div[1]
     Wait Until Element Is Visible    ${translate_element}
     ${translation}=    Get Text    ${translate_element}
-    [Return] ${translation}
+    [Return]    ${translation}
     
 
 *** Keywords ***
 Save lyrics
     No Operation 
 
-*** Keywords ***
-Set value by XPath
-    [Arguments]    ${xpath}    ${value}
-    ${result}=
-    ...    Execute Javascript
-    ...    document.evaluate('${xpath}',document.body,null,9,null).singleNodeValue.value='${value}';
-    RETURN    ${result}
 
 *** Tasks ***
 Google Translate song lyris from source to target language
