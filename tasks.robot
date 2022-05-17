@@ -9,6 +9,9 @@ Library             String
 ${SONG_NAME}=    %{SONG_NAME=Misterio - Mc Kevin}
 ${SOURCE_LANG}=    %{SOURCE_LANG=pt}
 ${TARGET_LANG}=    %{TARGET_LANG=en}
+${ORIGINAL_FILE}=    ${OUTPUT_DIR}${/}${SONG_NAME}-${SOURCE_LANG}-original.txt
+${TRANSLATION_FILE}=    ${OUTPUT_DIR}${/}${SONG_NAME}-${TARGET_LANG}-translation.txt
+
 
 *** Keywords ***
 Get lyrics
@@ -34,8 +37,8 @@ Translate
 *** Keywords ***
 Save lyrics
     [Arguments]    ${lyrics}    ${translation}
-    Create File    ${OUTPUT_DIR}${/}original.txt    ${lyrics}
-    Create File    ${OUTPUT_DIR}${/}translation.txt    ${translation}
+    Create File    ${ORIGINAL_FILE}    ${lyrics}
+    Create File    ${TRANSLATION_FILE}    ${translation}
 
 
 *** Tasks ***
