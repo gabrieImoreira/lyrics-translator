@@ -6,7 +6,7 @@ Library             OperatingSystem
 Library             String
 
 *** Variables ***
-${SONG_NAME}=    %{SONG_NAME=Misterio - Mc Kevin}
+${SONG_NAME}=    %{SONG_NAME=Mistério - Mc Kevin}
 ${SOURCE_LANG}=    %{SOURCE_LANG=pt}
 ${TARGET_LANG}=    %{TARGET_LANG=en}
 ${ORIGINAL_FILE}=    ${OUTPUT_DIR}${/}${SONG_NAME}-${SOURCE_LANG}-original.txt
